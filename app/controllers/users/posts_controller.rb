@@ -64,5 +64,12 @@ module Users
       @user = User.first
       return true
     end
+
+    def correct_user
+      @post = current_user.posts.find_by(id: params[:id])
+      unless @posts
+      redirect_to root_url
+    end
+    end
   end
 end

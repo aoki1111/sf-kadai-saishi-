@@ -16,9 +16,23 @@
   </div>
 
   <%= link_to "一覧へ戻る", posts_path, class: 'center', style: 'margin: 20px 0px;' %>
+
+  <div>
+
+  <% if current_user==@post.user %>
+
   <%= link_to "編集する", edit_post_path, class: 'center', style: 'margin: 20px 0px;' %>
 
   <%= link_to "このメッセージを削除する",post_path, method: :delete,class: 'center', style: 'margin: 20px 0px;' %>
+
+ <% else %>
+
+ <p>自分の投稿のみ編集、削除できます。</p>
+
+ <% end %>
+
+ </div>
+
 </article>
 <script>
   $(function() {
