@@ -14,7 +14,11 @@
       </div>
     <% end %>
   </div>
+
   <%= link_to "一覧へ戻る", posts_path, class: 'center', style: 'margin: 20px 0px;' %>
+  <%= link_to "編集する", edit_post_path, class: 'center', style: 'margin: 20px 0px;' %>
+
+  <%= link_to "このメッセージを削除する",post_path, method: :delete,class: 'center', style: 'margin: 20px 0px;' %>
 </article>
 <script>
   $(function() {

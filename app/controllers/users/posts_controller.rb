@@ -47,7 +47,7 @@ module Users
       @post = Post.find(params[:id])
       if @post.destroy
         flash[:success] = "投稿を削除しました"
-        redirect_to 'index'
+        redirect_to '@post'
       else
         flash[:warning] = "投稿を削除できませんでした"
         redirect_to 'index'
