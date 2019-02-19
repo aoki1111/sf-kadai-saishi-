@@ -1,3 +1,11 @@
+<% if logged_in? %>
+
 <div class="home">
   <%= render @posts %>
 </div>
+
+<% else %>
+
+<h1>ログインしてください</h1>
+
+<% end %>
