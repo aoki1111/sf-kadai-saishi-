@@ -1,10 +1,19 @@
 Rails.application.routes.draw do
+  get 'relationships/create'
+  get 'relationships/destroy'
   root to: 'static_pages#home'
   get 'home', to: "static_pages#home"
   get 'about', to: "static_pages#about"
   get 'login', to: "sessions#new"
   post 'login', to: "sessions#create"
   get 'logout', to: "sessions#destroy"
+  resources :users, only: [:index, :show, :new, :create] do
+    member do
+      get :followings
+      get :followers
+    end
+  end
+  resources :relationships, only: [:create, :destroy]
   resources :posts, only: [:index, :show], shallow: true do
     resources :comments, module: :posts, only: [:create, :destroy, :update]
   end
