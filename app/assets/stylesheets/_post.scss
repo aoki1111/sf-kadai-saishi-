@@ -1,0 +1,70 @@
+.post--card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+  margin: 10px;
+}
+
+.post--card__title {
+  height: 25%;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px 4px 0px 0px;
+  word-break: break-all;
+  span {
+    color: #fff;
+    font-size: 2vw;
+    filter: drop-shadow(0px 1px 1px #666);
+  }
+}
+
+.post--card__bg-color-1 {
+  background-color: #008dc5;
+}
+
+.post--card__bg-color-2 {
+  background-color: #fea3e0;
+}
+
+.post--card__bg-color-3 {
+  background-color: #a3fea8;
+}
+
+.post--card__content--container {
+  height: 75%;
+  width: 100%;
+  padding: 5px;
+  word-break: break-all;
+  display: flex;
+  flex-direction: column;
+}
+
+.post--card__content--info {
+  display: flex;
+  flex-direction: column;
+}
+
+.post--card__content--user {
+  font-size: 1vw;
+  margin:0;
+}
+
+.post--card__content--published {
+  font-size: 1vw;
+}
+
+.post--card__content--content {
+  padding-top: 5px;
+  white-space: pre-line;
+  font-size: 1.2vw;
+}
+
+.post--card__content--continude {
+  margin-top: auto;
+  align-self: center;
+  font-size: 1.3vw;
+  padding-bottom: 20px;
+}

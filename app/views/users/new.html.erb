@@ -1,0 +1,7 @@
+<div class="users-new">
+  <h2 class="center">新規登録</h2>
+  <%= form_for @user, :html => {class: 'form'} do |u| %>
+    <%= render 'form_error_message', object: u.object %>
+    <%= render 'form', f: u %>
+  <% end %>
+</div>

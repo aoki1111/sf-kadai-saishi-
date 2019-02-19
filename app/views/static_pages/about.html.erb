@@ -1,0 +1,234 @@
+<div class="image-text-container">
+  <img src="/about.jpg" alt="home" class="image-text-container__image image--about">
+  <p class="image-text-container__text text--about">Smart Farmer<br>1st Wave<br>Certification Examnation</p>
+</div>
+<%= image_tag '/sf_logo2.png', style: 'width:90%;' %>
+<section>
+  <h1 class="center">ようこそ！</h1>
+  <p>このページが見れているということは、最初の関門を無事くぐり抜けたということかと思います。</p>
+  <p>ここからが、試験の本番になります。基本を身につけていればクリアはそう難しくない難易度かと思います。</p>
+</section>
+<section>
+  <h1 class="center">試験概要</h1>
+  <ul　class="list-items">
+    <li class="list-items__item">試験時間は分</li>
+    <li class="list-items__item">本アプリケーションの要件を満たすことと、不具合を解消すること</li>
+    <li class="list-items__item">作業はdevelopmentブランチを作成して行うこと（git checkout -b developmentで作成可。）</li>
+    <li class="list-items__item">1不具合を解消するごとにmasterにマージを行うこと</li>
+    <li class="list-items__item">マスターにマージする際のマージコミットは不具合内容と不具合の原因を書くこと<br>（-mオプションを複数つければ複数行コミットメッセージにできます）<br>（例.git commit -m "不具合内容" -m "不具合の原因"）</li>
+    <li class="list-items__item">不具合発生時に対処を調べるのは可とします。効率よく的確に調べるのも重要なスキルです。</li>
+  </ul>
+</section>
+<section>
+  <h1 class="center">本アプリケーションの要件</h1>
+  <ol　class="list-items" style="list-style-type: decimal">
+    <li class="list-items__item">本アプリは、ユーザーが記事の投稿・他ユーザーの記事の閲覧、コメントができるサービスです</li>
+    <li class="list-items__item">root_urlでstatic_pagesのhomeが表示されること</li>
+    <li class="list-items__item">homeでは全てのユーザーの投稿が表示されること</li>
+    <li class="list-items__item">会員登録、ログイン・ログアウト機能を有すること（同一メールの登録は不可、パスワードは8文字以上）</li>
+    <li class="list-items__item">ログインすると記事の投稿・自身の記事の編集・削除ができること</li>
+    <li class="list-items__item">記事の編集・削除は自身の投稿に対してのみ行えること</li>
+    <li class="list-items__item">ユーザーをフォローすることでそのユーザーが投稿をした際に通知を受け取る機能を追加すること。</li>
+    <li class="list-items__item">通知は未読の数をカウントして、ユーザーの横に表示をする。</li>
+    <li class="list-items__item">通知の通知内容に入るデータは"ユーザーA（投稿者）が投稿しました。"という形で、投稿者名が入るようにすること。</li>
+    <li class="list-items__item">通知の詳細ページを開いた時点で、通知の確認判定を更新すること。</li>
+  </ol>
+</section>
+<section>
+  <h1 class="center">データテーブル</h1>
+  <table class="center" width="100%">
+    <thead>
+      <tr>
+        <th>要素名</th>
+        <th>モデル名</th>
+        <th>カラム名1:型</th>
+        <th>カラム名2:型</th>
+        <th>カラム名3:型</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ユーザー</td>
+        <td>User</td>
+        <td>name(ユーザー名):str</td>
+        <td>email(メールアドレス):str</td>
+        <td>password_digest（パスワード）:str</td>
+      </tr>
+      <tr>
+        <td>記事</td>
+        <td>Post</td>
+        <td>title（タイトル）:str</td>
+        <td>content（本文）:str</td>
+        <td>user_id（ユーザーID）:ref</td>
+      </tr>
+      <tr>
+        <td>コメント</td>
+        <td>Comment</td>
+        <td>content（本文）:str</td>
+        <td>user_id（ユーザーID）:ref</td>
+      </tr>
+      <tr>
+        <td>フォロー管理</td>
+        <td>Relationship</td>
+        <td>follower_id（フォロー元ユーザー）:ref</td>
+        <td>followed_id（フォロー先ユーザー）:ref</td>
+      </tr>
+      <tr>
+        <td>通知</td>
+        <td>PostNotification</td>
+        <td>content（通知内容）:str</td>
+        <td>checked（確認済み判定）:bool</td>
+        <td>user_id（ユーザーID）:ref</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+<section>
+  <h1 class="center">ルーティング</h1>
+  <table class="center" width="100%">
+    <thead>
+      <tr>
+        <th class="table__td--under-line">HTTPメソッド:URL</th>
+        <th class="table__td--under-line">コントローラー</th>
+        <th class="table__td--under-line">内容</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>get:/</td>
+        <td>static_pages#home</td>
+        <td>ホーム（投稿一覧）</td>
+      </tr>
+      <tr>
+        <td>get:/login</td>
+        <td>sessions#new</td>
+        <td>ログインフォーム</td>
+      </tr>
+      <tr>
+        <td>post:/login</td>
+        <td>sessions#new</td>
+        <td>ログイン</td>
+      </tr>
+      <tr>
+        <td class="table__td--under-line">get:/logout</td>
+        <td class="table__td--under-line">sessions#destroy</td>
+        <td class="table__td--under-line">ログアウト</td>
+      </tr>
+      <tr>
+        <td>get:/signup</td>
+        <td>users#new</td>
+        <td>会員登録フォーム</td>
+      </tr>
+      <tr>
+        <td>post:/signup</td>
+        <td>users#new</td>
+        <td>会員登録</td>
+      </tr>
+      <tr>
+        <td>get:/users/:id</td>
+        <td>users#show</td>
+        <td>ユーザー情報の表示</td>
+      </tr>
+      <tr>
+        <td>get:/users/:id/edit</td>
+        <td>users#edit</td>
+        <td>ユーザー情報編集</td>
+      </tr>
+      <tr>
+        <td class="table__td--under-line">patch(put):/users/:id</td>
+        <td class="table__td--under-line">users#update</td>
+        <td class="table__td--under-line">ユーザー情報更新</td>
+      </tr>
+      <tr>
+        <td>get:/users/:user_id/posts</td>
+        <td>posts#index</td>
+        <td>投稿一覧</td>
+      </tr>
+      <tr>
+        <td>get:/users/:user_id/posts/new</td>
+        <td>posts#new</td>
+        <td>投稿作成</td>
+      </tr>
+      <tr>
+        <td>post:/users/:user_id/posts</td>
+        <td>posts#create</td>
+        <td>投稿</td>
+      </tr>
+      <tr>
+        <td>get:/posts/:id/edit</td>
+        <td>posts#edit</td>
+        <td>投稿の編集</td>
+      </tr>
+      <tr>
+        <td>get:/posts/:id</td>
+        <td>posts#show</td>
+        <td>投稿の表示</td>
+      </tr>
+      <tr>
+        <td>patch(put):/posts/:id</td>
+        <td>posts#update</td>
+        <td>投稿の更新</td>
+      </tr>
+      <tr>
+        <td class="table__td--under-line">delete:/posts/:id</td>
+        <td class="table__td--under-line">posts#destroy</td>
+        <td class="table__td--under-line">投稿の削除</td>
+      </tr>
+      <tr>
+        <td>post:/posts/:post_id/comments</td>
+        <td>comments#create</td>
+        <td>コメント投稿</td>
+      </tr>
+      <tr>
+        <td class="table__td--under-line">delete:/comments/:id</td>
+        <td class="table__td--under-line">comments#destroy</td>
+        <td class="table__td--under-line">コメント削除</td>
+      </tr>
+      <tr>
+        <td>get:/users/:id/following</td>
+        <td>Relationships#following</td>
+        <td>フォローしているユーザー一覧</td>
+      </tr>
+      <tr>
+        <td>get:/users/:id/followers</td>
+        <td>Relationships#followers</td>
+        <td>フォローされているユーザー一覧</td>
+      </tr>
+      <tr>
+        <td>post:/users/:id/following</td>
+        <td>Relationships#create</td>
+        <td>ユーザーをフォローする</td>
+      </tr>
+      <tr>
+        <td class="table__td--under-line">delete:/users/:id/following</td>
+        <td class="table__td--under-line">Relationships#followers</td>
+        <td class="table__td--under-line">フォローを解除する</td>
+      </tr>
+      <tr>
+        <td>get:/users/:id/post_notifications</td>
+        <td>post_notifications#index</td>
+        <td>通知一覧</td>
+      </tr>
+      <tr>
+        <td>get:/post_notifications/:id</td>
+        <td>post_notifications#show</td>
+        <td>通知詳細</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+<section>
+  <h1 class="center">動作確認内容</h1>
+  <ol class="list-items" style="list-style-type: decimal;margin:0px 20px;padding:20px 0px;">
+    <li class="list-items__item">ルーティングに問題がないか</li>
+    <li class="list-items__item">各フォームのエラー表示は正確に行われるか</li>
+    <li class="list-items__item">ユーザー登録ができるかどうか（メールアドレス、パスワードの条件を満たすか）</li>
+    <li class="list-items__item">ログイン、ログアウトができるかどうか</li>
+    <li class="list-items__item">管理ページの表示、フォローボタンがログアウト中に機能しないようになっているか</li>
+    <li class="list-items__item">記事が作成できるかどうか（タイトル、本文が問題なく反映されるか）</li>
+    <li class="list-items__item">他人の投稿を編集できないようになっているか</li>
+    <li class="list-items__item">ユーザーをフォローできるか、フォローを解除できるか</li>
+    <li class="list-items__item">フォローして記事を投稿した際に通知データが作成されるか</li>
+    <li class="list-items__item">通知データを開いた際に、通知カウントが減るかどうか</li>
+  </ol>
+</section>

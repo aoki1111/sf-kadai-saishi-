@@ -1,0 +1,175 @@
+@import 'variables';
+@import 'mixin';
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 50px;
+  padding: 0px 100px;
+  background-color: #fff;
+}
+
+.header__logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+}
+
+.header__end {
+  margin-left: auto;
+}
+
+.header__items {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.header__items__item {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  margin: 0px 10px;
+  i {
+    padding-right: 5px;
+  }
+}
+
+.accent {
+  color: $accentColor;
+  border:solid 1px $accentColor;
+}
+
+.border {
+  min-width:40px;
+  border: solid 1px #0099ff;
+  transition: 1s;
+}
+
+.accent:hover {
+  @include colorChange();
+}
+
+a {
+  display: inline-block;
+  color: #3498db;
+  text-decoration: none;
+}
+.button {
+  position: relative;
+}
+/* Effect1
+ *************************************** */
+/* 擬似要素の共通スタイル */
+.change-border01::after,
+.change-border01::before,
+.change-border01__inner::after,
+.change-border01__inner::before {
+  background-color: #3498db;
+  content: '';
+  display: block;
+  position: absolute;
+  z-index: 10;
+  transition: all .3s ease;
+  -webkit-transition: all .3s ease;
+  border-radius:5px;
+}
+.change-border01::after {
+  height: 1px;
+  left: -1px;
+  top: -1px;
+  width: 0px;
+}
+/* 右下へ配置 */
+.change-border01::before {
+bottom: -1px;
+height: 1px;
+right: -1px;
+width: 0px;
+}
+/* 左下へ配置 */
+.change-border01__inner::after {
+bottom: -1px;
+height: 0px;
+left: -1px;
+width: 1px;
+}
+/* 右下へ配置 */
+.change-border01__inner::before {
+height: 0px;
+right: -1px;
+top: -1px;
+width: 1px;
+}
+
+/* hover */
+.change-border01:hover::after,
+.change-border01:hover::before {
+width: 100%;
+width: calc(100% + 1px);
+}
+.change-border01:hover .change-border01__inner::after,
+.change-border01:hover .change-border01__inner::before {
+height: 100%;
+height: calc(100% + 1px);
+}
+
+.change-border02::after,
+.change-border02::before,
+.change-border02__inner::after,
+.change-border02__inner::before {
+  background-color: #3498db;
+  content: '';
+  display: block;
+  position: absolute;
+  z-index: 10;
+  transition: all .3s ease;
+  -webkit-transition: all .3s ease;
+  border-radius:5px;
+}
+/* 左上へ配置 */
+.change-border02::after {
+    height: 1px;
+    left: -1px;
+    top: -1px;
+    width: 0px;
+    transition-delay: .3s;
+}
+/* 右下へ配置 */
+.change-border02::before {
+  bottom: -1px;
+  height: 1px;
+  right: -1px;
+  width: 0px;
+  transition-delay: .9s;
+}
+/* 左下へ配置 */
+.change-border02__inner::after {
+  bottom: -1px;
+  height: 0px;
+  left: -1px;
+  width: 1px;
+  transition-delay: 0s;
+}
+/* 右下へ配置 */
+.change-border02__inner::before {
+  height: 0px;
+  right: -1px;
+  top: -1px;
+  width: 1px;
+  transition-delay: .6s;
+}
+
+/* hover */
+.change-border02:hover::after,
+.change-border02:hover::before {
+  width: 100%;
+  width: calc(100% + 1px);
+}
+.change-border02:hover .change-border02__inner::after,
+.change-border02:hover .change-border02__inner::before {
+  height: 100%;
+  height: calc(100% + 1px);
+}

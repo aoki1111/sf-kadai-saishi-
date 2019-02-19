@@ -1,0 +1,9 @@
+<div class="comment-container">
+  <% if controller.controller_name == "users" %>
+    <div>投稿先：<%= link_to comment.post.title, comment.post %></div>
+  <% else %>
+  <div class="author">投稿者：<%= comment.user ? comment.user.name : "名無し" %></div>
+  <% end %>
+  <div class="time"><%= comment.created_at.strftime("%Y/%m/%d %H:%M") %></div>
+  <div class="comment"><%= raw comment.content %></div>
+</div>

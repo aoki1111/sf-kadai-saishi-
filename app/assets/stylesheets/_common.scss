@@ -1,0 +1,115 @@
+@import "mixin";
+@import "variables";
+
+body {
+  background-color: #cacaca;
+}
+
+h1 {
+  @media screen and (min-width: 813px) {
+    font-size:3vw;
+    padding:30px 0px;
+  }
+  @media screen and (max-width: 812px) {
+    font-size: 40px;
+  }
+}
+
+h2 {
+  @media screen and (min-width: 813px) {
+    font-size: 2.5vw;
+    padding: 20px 0px;
+  }
+  @media screen and (max-width:812px) {
+    font-size: 30px;
+  }
+}
+
+h3 {
+  font-size: 2vw;
+  padding: 15px 0px;
+}
+
+h4 {
+  font-size: 1.5vw;
+  padding: 10px 0px;
+}
+
+h5 {
+  font-size: 1vw;
+  padding: 5px 0px;
+}
+
+section {
+  padding: 0px 20px;
+}
+
+table {
+  font-size:12px;
+}
+
+th {
+  text-align: center;
+}
+
+td {
+  padding:5px;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.list-items {
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+.list-items__item {
+  margin-bottom: 10px;
+  text-indent:-1em;
+  padding-left:1em;
+}
+
+.center {
+  text-align: center;
+}
+
+.main-container {
+  margin: 0px 10%;
+  background-color: #fff;
+  min-height: calc(100vh - 50px);
+}
+
+.image-text-container {
+  position: relative;
+  width: 100%;
+}
+
+.image-text-container__image {
+  width: 100%;
+}
+
+.image-text-container__text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  width: 100%;
+}
+
+.table__td--under-line {
+  border-bottom: dashed 1px #444444;
+}
+
+.btn {
+  @include button();
+}
+
+.btn-primary {
+  @include buttonColor();
+}

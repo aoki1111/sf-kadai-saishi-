@@ -1,0 +1,17 @@
+@keyframes coloring {
+  0% {
+    filter: grayscale(100%);
+  }
+  100% {
+    filter: grayscale(0);
+  }
+}
+
+@keyframes textfadein {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

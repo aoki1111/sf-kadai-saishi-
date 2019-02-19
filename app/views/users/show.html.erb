@@ -1,0 +1,16 @@
+<div class="users-show">
+  <div class="header">
+    <h2><%= @user.name %></h2>
+    <%= image_tag('/user.png', :class =>'profile-image', :style => 'border-radius:50%;') %>
+  </div>
+  <div class="posts-container">
+    <h2 class="center">投稿一覧</h2>
+    <%= render @posts %>
+    <%= will_paginate @posts %>
+  </div>
+  <div class="comments-container">
+    <h2 class="center">コメント一覧</h2>
+    <%= render @comments %>
+    <%= will_paginate @comments %>
+  </div>
+</div>

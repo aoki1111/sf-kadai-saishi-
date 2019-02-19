@@ -1,0 +1,18 @@
+@import 'variables';
+
+@mixin button($radius:5px, $height:30px) {
+  border-radius: $radius;
+  height: $height;
+}
+
+@mixin buttonColor($baseColor:#00a6f3, $fontColor:#fff) {
+  border: solid 1px $baseColor;
+  background-color: $baseColor;
+  color: $fontColor;
+}
+
+@mixin colorChange($backGroundColor:$accentColor, $fontColor: #fff) {
+  background-color: $backGroundColor;
+  color: $fontColor;
+  transition: 1s;
+}

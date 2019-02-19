@@ -1,0 +1,12 @@
+
+.image--about {
+  filter: grayscale(100%);
+  animation: coloring 10s ease 0s 1 normal both;
+}
+
+.text--about {
+  color: #fff;
+  font-size: 3em;
+  padding :10px;
+  animation: textfadein 2s ease 3s 1 normal both;
+}

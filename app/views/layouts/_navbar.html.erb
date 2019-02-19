@@ -1,0 +1,45 @@
+<nav class="header">
+  <div class="header__logo">
+    <a href="/">
+      <img src="/sf_logo2.png" alt="sf_logo" width="160">
+    </a>
+  </div>
+  <div>
+    <%= link_to about_path, class:"header__items__item change-border01 button" do %>
+      <span class="change-border01__inner"><i class="fa fa-info-circle" aria-hidden="true"></i>About</span>
+    <% end %>
+  </div>
+  <div>
+    <%= link_to "#", class:"header__items__item change-border02 button" do %>
+      <span class="change-border02__inner"><i class="fa fa-users" aria-hidden="true"></i>Users</span>
+    <% end %>
+  </div>
+  <% if logged_in? %>
+    <div>
+      <%= link_to user_path(current_user), class:"header__items__item" do %>
+        <i class="fa fa-user"></i><%= current_user.name %>
+      <% end %>
+    </div>
+    <div>
+      <%= link_to new_user_post_path(current_user), class:"header__items__item accent" do %>
+        <strong><i class="fa fa-pencil-square-o" aria-hidden="true"></i>new post</strong>
+      <% end %>  
+    </div>
+    <div>
+      <%= link_to logout_path, class:"header__items__item change-border01 button" do %>
+        <span class="change-border01__inner"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</span>
+      <% end %>
+    </div>
+  <% else %>
+    <div>
+      <%= link_to login_path, class:"header__items__item change-border01 button" do %>
+        <span class="change-border01__inner"><i class="fa fa-sign-in" aria-hidden="true"></i>Login</span>
+      <% end %>
+    </div>
+    <div>
+      <%= link_to new_user_path, class:"header__items__item accent" do %>
+        <strong><i class="fa fa-user-plus" aria-hidden="true"></i>Sign up</strong>
+      <% end %>
+    </div>
+  <% end %>
+</nav>

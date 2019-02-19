@@ -1,0 +1,11 @@
+<div class="login">
+<%= form_with url:login_path, class:"form" do |f| %>
+  <%= f.label :email, class:"form__items form__items--label" %>
+  <%= f.email_field :email, style:"font-family:FontAwesome", class:"form__items form__items--input", placeholder:"\uF0e0 メールアドレス" %>
+
+  <%= f.label :password, class:"form__items form__items--label" %>
+  <%= f.password_field :password, style:"font-family:FontAwesome", class:"form__items form__items--input", placeholder:"\uF023 パスワード" %>
+
+  <%= f.submit 'ログイン', class:"form__items form__items--submit" %>
+<% end %>
+</div>

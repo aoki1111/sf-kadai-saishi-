@@ -1,0 +1,13 @@
+<%= f.label :title, 'タイトル', class:"form__items form__items--label" %>
+<%= f.text_field :title, class:"form__items form__items--input" %>
+
+<%= f.label :content, '本文', class:"form__items form__items--label" %>
+<%= f.text_area :content, style: 'width:100%;' %>
+
+<%= f.submit class:"form__items form__items--submit"  %>
+
+<script>
+  $(function() {
+    $('#post_content').froalaEditor();
+  });
+</script>

@@ -1,0 +1,67 @@
+@import 'mixin';
+@import 'variables';
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+  justify-content: flex-start;
+  width: 80%;
+  padding:50px;
+  border: solid 1px #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+  margin-top: 20px;
+}
+
+.form__items {
+  margin-bottom: 10px;
+}
+
+.form__items--label {
+  font-weight:bold;
+}
+
+.form__items--input {
+  width: 100%;
+  border: solid 1px #ccc;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.form__items--submit {
+  cursor: pointer;
+  align-self: center;
+  margin-top: 20px;
+  @include button($height:40px);
+  @include buttonColor($baseColor:$accentColor);
+  padding: 5px 10px;
+}
+
+.form__items--submit:hover,.form__items--submit:focus {
+  border: solid 2px #ff8800;
+  box-shadow: 0px 0px 6px #ff8800;
+}
+
+.use_icon{
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.field_with_errors {
+  width: 100%;
+}
+
+#error_explanation {
+  background-color: #ffd7d7;
+  color: red;
+  border: solid 1px red;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}

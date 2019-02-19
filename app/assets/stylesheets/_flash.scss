@@ -1,0 +1,52 @@
+
+div.alert-info, div.alert-success, div.alert-danger, div.alert-warning{
+  position: absolute;
+  top:10%;
+  left:50%;
+  transform: translateX(-50%);
+  z-index: 99;
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border-radius: 5px;
+  width:50%;
+  height:60px;
+  animation: flash-fadeout 1s linear 3s 1;
+  animation-fill-mode: forwards;
+  color:white;
+}
+
+div.alert-info {
+background-color:rgba(#45a0e6, 1);
+}
+
+div.alert-success {
+  background-color:rgba(#02a502, 1);
+}
+
+div.alert-danger {
+  background-color: rgba(#ff7e7e, 1);
+}
+
+div.alert-warning {
+  background-color: rgba(#f3a32b, 1);
+}
+
+.alert__icon {
+  width: 50px;
+  text-align: center;
+  font-size: 1.6rem;
+}
+.alert__message {
+  flex: 1;
+  padding: 5px;
+  font-size: 1rem;
+}
+
+@keyframes flash-fadeout {
+  0%   {  opacity:1;height:60px;}
+  99%  {  opacity:0;height:60px;}
+  100% {  opacity:0;height:0;}
+}

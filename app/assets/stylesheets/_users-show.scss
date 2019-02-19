@@ -1,0 +1,13 @@
+.users-show {
+  .header {
+    height: 400px;
+    background: linear-gradient(#a2ffa2, #6ff5fa);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    .profile-image {
+      width: 200px;
+      height: 200px;
+    }
+  }
+}

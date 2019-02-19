@@ -1,0 +1,6 @@
+<% provide(:btn_text, '投稿する') %>
+<div class="posts--new">
+  <%= form_with model:[:user, @post], class:"form" do |f| %>
+    <%= render 'form', f:f %>
+  <% end %>
+</div>

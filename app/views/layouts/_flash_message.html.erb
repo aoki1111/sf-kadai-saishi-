@@ -1,0 +1,18 @@
+<% flash.each do |message_type, message| %>
+	<%= content_tag(:div, class: "alert alert-#{message_type} sp-alert sp-alert-#{message_type}") do %>
+    <div class="alert__icon sp-alert__icon">
+      <% if message_type == "danger" %>
+        <i class="fa fa-ban"></i>
+      <% elsif message_type == "info" %>
+        <i class="fa fa-info"></i>
+      <% elsif message_type == "success" %>
+        <i class="fa fa-check-circle"></i>
+      <% elsif message_type == "warning" %>
+        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+      <% end %>
+    </div>
+    <div class="alert__message sp-alert__message">
+      <%= content_tag(:span, message) %>
+    </div>
+	<% end %>
+<% end %>
